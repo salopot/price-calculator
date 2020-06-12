@@ -1,0 +1,22 @@
+{
+  "name": "salopot/price-calculator",
+  "type": "library",
+  "description": "Test Assessment",
+  "authors": [
+    {
+      "name": "Alexander Kireev",
+      "email": "salopot@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.4"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Store\\": "src"
+    }
+  }
+}

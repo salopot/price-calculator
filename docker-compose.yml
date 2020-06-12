@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+    php-cli:
+        build:
+            context: ./
+            dockerfile: dev/docker/php/php-cli.docker
+            args:
+              USER_ID: ${USER_ID}
+              GROUP_ID: ${GROUP_ID}
+        volumes:
+            - ./:/var/www
+        environment:
+          XDEBUG_CONFIG: "remote_host=${XDEBUG_HOST} remote_enable=1 idekey=${XDEBUG_IDE_KEY}"
+        tty: true
+

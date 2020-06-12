@@ -1,0 +1,5 @@
+#ide project files
+.idea
+
+.env
+/vendor

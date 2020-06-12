@@ -1,0 +1,15 @@
+FROM php:7.4-cli
+
+RUN apt-get update && apt-get install -y openssh-client git zip unzip curl libcurl4-openssl-dev \
+    && docker-php-ext-install curl bcmath \
+    && pecl install xdebug \
+    && docker-php-ext-enable xdebug
+
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+ARG USER_ID
+ARG GROUP_ID
+RUN groupadd --gid ${USER_ID} developer && useradd --uid ${USER_ID} --gid ${GROUP_ID} -m developer
+USER developer:developer
+
+WORKDIR /var/www
